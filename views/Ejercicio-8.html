@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 08 - Casino</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .casino {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #a81a39;
+        }
+
+        .dados {
+            font-size: 22px;
+            margin: 15px 0;
+        }
+
+        button {
+            background-color: #a81a39;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #86142d;
+        }
+
+        .resultado {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #a81a39;
+        }
+    </style>
+</head>
+<body>
+    <div class="casino">
+        <h1>🎰 Casino</h1>
+
+        <div class="dados" id="dados">
+            🎲 🎲 🎲
+        </div>
+
+        <button onclick="lanzarDados()">Lanzar Dados</button>
+
+        <div class="resultado" id="resultado"></div>
+    </div>
+    
+    <script>
+        function lanzarDados() {
+            let dado1 = Math.floor(Math.random() * 6) + 1;
+            let dado2 = Math.floor(Math.random() * 6) + 1;
+            let dado3 = Math.floor(Math.random() * 6) + 1;
+
+            document.getElementById("dados").innerHTML =
+                `🎲 ${dado1} - 🎲 ${dado2} - 🎲 ${dado3}`;
+
+            let contadorSeis = 0;
+
+            if (dado1 === 6) contadorSeis++;
+            if (dado2 === 6) contadorSeis++;
+            if (dado3 === 6) contadorSeis++;
+
+            let mensaje = "";
+
+            if (contadorSeis === 3) {
+                mensaje = "Excelente";
+            } else if (contadorSeis === 2) {
+                mensaje = "Muy bien";
+            } else if (contadorSeis === 1) {
+                mensaje = "Regular";
+            } else {
+                mensaje = "Pésimo";
+            }
+
+            document.getElementById("resultado").innerText = mensaje;
+        }
+    </script>
+</body>
+</html>

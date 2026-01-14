@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 01 - Suma de numeros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #a81a39;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            padding: 0px;
+            margin: 15px 0;
+            border: 2px solid #a81a39;
+            border-radius: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #a81a39;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8f162f;
+        }
+
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Inserta tu edad</h1>
+
+        <input type="number" id="edad" placeholder="Ingrese su edad">
+
+        <button onclick="verificarEdad()">Verificar</button>
+
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function verificarEdad() {
+            let edad = document.getElementById("edad").value;
+            let resultado = document.getElementById("resultado");
+
+            if (edad >= 13 && edad <= 17) {
+                resultado.textContent = "La persona es adolescente.";
+                resultado.style.color = "#a81a39";
+            } else {
+                resultado.textContent = "La persona NO es adolescente.";
+                resultado.style.color = "black";
+            }
+        }
+    </script>
+</body>
+</html>
